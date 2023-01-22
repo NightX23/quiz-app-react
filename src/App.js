@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import QuestionCard from "./components/QuestionCard";
+import FinalResults from "./components/FinalResults";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   const [finalResults, setFinalResults] = useState(false);
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  
 
   const questions = [
     {
@@ -70,7 +71,6 @@ function App() {
     setFinalResults(false);
   };
 
-
   return (
     <div className="App">
       <h1>Header</h1>
@@ -78,34 +78,17 @@ function App() {
       <h2>Current Score: {score}</h2>
 
       {finalResults ? (
-        <div className="final-results">
-          <h1>Final Results</h1>
-
-          <h2>
-            {score} out of {questions.length} correct - {(score*100)/questions.length}%
-          </h2>
-          <button onClick={() => restartGame()}>Restart Game</button>
-        </div>
+        <FinalResults
+          score={score}
+          questions={questions}
+          restartGame={restartGame}
+        />
       ) : (
-        <div className="question-card">
-          <h2>
-            Question {currentQuestion + 1} of {questions.length}
-          </h2>
-          <h3 className="question-text">{questions[currentQuestion].text}</h3>
-
-          <ul>
-            {questions[currentQuestion].options.map((option) => {
-              return (
-                <li
-                  onClick={() => optionClicked(option.isCorrect)}
-                  key={option.id}
-                >
-                  {option.text}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <QuestionCard
+          currentQuestion={currentQuestion}
+          questions={questions}
+          optionClicked={optionClicked}
+        />
       )}
     </div>
   );
