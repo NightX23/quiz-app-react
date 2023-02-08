@@ -4,6 +4,7 @@ import "../App.css";
 import PropTypes from "prop-types";
 
 function QuestionCard({ currentQuestion, questions, optionClicked }) {
+  if (questions.length<0) return <p>Loading...</p>;
   return (
     <div className="question-card">
       <h2>
@@ -24,6 +25,15 @@ function QuestionCard({ currentQuestion, questions, optionClicked }) {
   );
 }
 
-QuestionCard.propTypes = {};
+QuestionCard.propTypes = {
+  questions: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        text: PropTypes.string.isRequired,
+        isCorrect: PropTypes.bool.isRequired
+    })).isRequired
+  })).isRequired
+};
 
 export default QuestionCard;
