@@ -1,26 +1,32 @@
 import React from "react";
-import "../App.css";
-
+import "../stylesheets/components.css";
 import PropTypes from "prop-types";
 
 function QuestionCard({ currentQuestion, questions, optionClicked }) {
   if (questions.length < 0) return <p>Loading...</p>;
   return (
-    <div className="question-card">
-      <h2>
-        Question {currentQuestion + 1} of {questions.length}
-      </h2>
-      <h3 className="question-text">{questions[currentQuestion].text}</h3>
-
-      <ul>
-        {questions[currentQuestion].options.map((option) => {
-          return (
-            <li onClick={() => optionClicked(option.isCorrect)} key={option.id}>
-              {option.text}
-            </li>
-          );
-        })}
-      </ul>
+    <div className="main-container question-card">
+      <div className="card-column">
+        <h2 className="question-text">{questions[currentQuestion].text}</h2>
+        <hr />
+        <h2 className="question-counter-text">
+          Question {currentQuestion + 1} of {questions.length}
+        </h2>
+      </div>
+      <div className="card-column">
+        <ul>
+          {questions[currentQuestion].options.map((option) => {
+            return (
+              <li
+                onClick={() => optionClicked(option.isCorrect)}
+                key={option.id}
+              >
+                {option.text}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

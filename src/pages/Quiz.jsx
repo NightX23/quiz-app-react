@@ -4,6 +4,8 @@ import FinalResults from "../components/FinalResults";
 import quizzesBank from "../data/quizzes.json";
 import { useParams } from "react-router-dom";
 
+import "../stylesheets/pages.css";
+
 function Quiz() {
   let { quizid } = useParams();
   let qid = 0;
@@ -31,9 +33,10 @@ function Quiz() {
   };
 
   return (
-    <div className="App">
-      <h1>{quiz.header}</h1>
-      <h2>Current Score: {score}</h2>
+    <>
+      <h1 className="quiz-title">{quiz.header}</h1>
+      <hr/>
+      <h2>►Current Score: {score}◄</h2>
       {finalResults ? (
         <FinalResults
           score={score}
@@ -47,7 +50,7 @@ function Quiz() {
           optionClicked={optionClicked}
         />
       )}{" "}
-    </div>
+    </>
   );
 }
 

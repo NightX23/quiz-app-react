@@ -1,0 +1,90 @@
+.main-container {
+  margin: 0 auto;
+  background-color: rgba(9, 8, 8, 0.497);
+  padding: 16px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  width: 80%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 16px;
+  border: 3px solid #0c0c0c;
+  border-radius: 20px;
+  font-size: 20px;
+
+  margin-top: 8px;
+}
+li:hover {
+  background-color: rgba(188, 0, 0, 0.5);
+  border: 3px solid #ff0000;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  color: white;
+  border-radius: 16px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/****************************** QUESTIONLIST COMPONENT ****************************************************************************************/
+.btn-edit {
+  background-color: orange;
+}
+
+.btn-delete {
+  background-color: red;
+}
+/**********************************************************************************************************************************************/
+
+/****************************** QUESTIONSCARD COMPONENT ***************************************************************************************/
+.question-card {
+  display: flex;
+}
+
+.card-column {
+  display: inline-block;
+  width: 50%;
+  margin: 12px;
+}
+
+.question-text {
+  color: white;
+  font-size: 30px;
+}
+
+.question-counter-text {
+  color: rgb(227, 193, 0);
+  font-size: 24px;
+  font-style: italic;
+}
+/***********************************************************************************************************************************************/
+/****************************** FINALRESULTS COMPONENT *************************************************************************************/
+.final-results {
+  padding: 16px;
+  width: 50%;
+}
+/***********************************************************************************************************************************************/

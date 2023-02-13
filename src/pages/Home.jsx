@@ -3,12 +3,13 @@ import React from "react";
 import QuizzesList from "../components/QuizzesList";
 import quizzesBank from "../data/quizzes.json";
 
+import "../stylesheets/pages.css";
+
 function Home() {
   const quizzesList = quizzesBank;
-
   return (
     <div>
-      <h2>Home</h2>
+      <h1>Quizz App</h1>
       {/* <Link to="/quiz">Take Quiz</Link> */}
       <hr />
 

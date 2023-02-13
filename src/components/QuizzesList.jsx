@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../stylesheets/components.css";
 
 function QuizzesList({ quizzesInfo }) {
   return (
-    <div className="question-card">
+    <div className="main-container">
       <ul>
         {quizzesInfo.map((quiz) => {
           const quizUrl = "quiz/" + quiz.id;
@@ -12,8 +13,8 @@ function QuizzesList({ quizzesInfo }) {
               <Link id to={quizUrl}>
                 {quiz.header}
               </Link>
-              <button>Edit</button>
-              <button>Delete</button>
+              <button className="btn-edit">Edit</button>
+              <button className="btn-delete">Delete</button>
             </li>
           );
         })}
