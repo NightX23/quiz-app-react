@@ -1,15 +1,20 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import QuestionCard from "../components/QuestionCard";
 import FinalResults from "../components/FinalResults";
 import quizzesBank from "../data/quizzes.json";
+import { useParams } from "react-router-dom";
 
 function Quiz() {
+  let { quizid } = useParams();
+  let qid = 0;
+  if (quizid !== undefined) qid = parseInt(quizid);
+
   const [finalResults, setFinalResults] = useState(false);
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const quizzes = quizzesBank;
-  const quiz = quizzes[0];
+  const quiz = quizzes[qid];
 
   const optionClicked = (isCorrect) => {
     if (isCorrect) setScore(score + 1);
@@ -32,7 +37,7 @@ function Quiz() {
       {finalResults ? (
         <FinalResults
           score={score}
-          questions={quiz.questions}
+          nquestions={quiz.questions.length}
           restartGame={restartGame}
         />
       ) : (
