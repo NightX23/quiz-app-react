@@ -1,12 +1,11 @@
 import React from "react";
-//import { Link } from "react-router-dom";
 import QuizzesList from "../components/QuizzesList";
-import quizzesBank from "../data/quizzes.json";
+import * as quizzesBank from "../services/quizzes-services";
 
 import "../stylesheets/pages.css";
 
 function Home() {
-  const quizzesList = quizzesBank;
+  const quizzesList = quizzesBank.getQuizzes();
   return (
     <div>
       <h1>Quizz App</h1>
