@@ -5,6 +5,10 @@ import "../stylesheets/components.css";
 function QuizzesList({ quizzesInfo }) {
   return (
     <div className="main-container">
+      <Link to={"/create"}>
+        <button className="btn-create">Create Quiz</button>
+      </Link>
+      <hr />
       <ul>
         {quizzesInfo.map((quiz) => {
           const quizUrl = "quiz/" + quiz.id;

@@ -35,7 +35,7 @@ function Quiz() {
   return (
     <>
       <h1 className="quiz-title">{quiz.header}</h1>
-      <hr/>
+      <hr />
       <h2>►Current Score: {score}◄</h2>
       {finalResults ? (
         <FinalResults
